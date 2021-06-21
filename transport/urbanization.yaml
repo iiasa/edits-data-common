@@ -1,0 +1,71 @@
+format: 1
+
+title: Compact/transit-oriented urbanization
+description: |-
+  Urbanization, dense urban form, and/or public/active transport provision could
+  lead to more active/public transport versus private, motorized transport.
+
+  This file describes data that captures aspects of this phenomenon.
+
+provider:
+  organisation: EDITS network
+  contact: kishimot@iiasa.ac.at
+
+classifiers:
+- "Kind :: Phenomenon"
+
+dimension:
+  time: {}
+  space: {}
+  city:
+    scope: Some cities
+    resolution: Identifier for each specific city
+    description: |-
+      e.g. OECD-defined functional urban areas (FUAs):
+      https://www.oecd.org/cfe/regionaldevelopment/functional-urban-areas.htm
+  mode:
+    resolution: |-
+      Distinguishing at least (a) active, (b) public, and (c) other transport;
+      in some cases separating:
+
+      - Active: walk, bicycle/scooter, etc.
+      - Public: bus, light rail, heavy rail, etc.
+
+measure:
+  access-1:
+    description: |-
+      Number of jobs accessible within X travel time (e.g. 30 minutes).
+  access-2:
+    description: |-
+      Fraction of population within X distance (e.g. 500 metres) of a public
+      transport stop, or other analogous measures.
+  activity:
+    description: |-
+      Amount of travel by a person or group of persons.
+  connectivity:
+    description: |-
+      Dimensionless indices of complexity/connectivity. Condition experienced by
+      the average/median person or measure for an entire city.
+  population:
+    description: Count of people in a given area.
+  route-length:
+    description: |-
+      Total size of infrastructure for a given mode of transport, inclusive of
+      length of metro, tram, or bus routes; active transport routes; roads for
+      private vehicles.
+  stations:
+    description: |-
+      Count of stations or stops for a given (usually public transit) mode
+
+quantity:
+- measure: activity
+  dimensions: [time, space, mode]
+  description: |-
+    Could be expressed as a total (count of trips; distance, time, or
+    expenditure) or some statistic across these, e.g. mean, median, or quantile.
+
+- measure: population
+  dimensions: [time, city]
+  description: |-
+    a.k.a. “city size”. Relevant because a city of e.g. 30 million has a
+    different potential for active mobility than a city of 3 million.
