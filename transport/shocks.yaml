@@ -1,0 +1,24 @@
+format: 1
+
+title: Shocks, e.g. COVID-19
+description: |-
+  Emergency/temporary changes in activity due to the COVID-19 pandemic and other
+  shocks can be revealing about possible, sustainable changes in the longer
+  term.
+
+  Sustainable transformation of travel, mobility, etc. can be incorporated in “recovery” and “build back better” frames for pandemic response & recovery.
+
+  This file describes data that can quantify this phenomenon. Not all of the
+  quantities will be needed in a given application.
+
+provider:
+  organisation: EDITS network
+  contact: edits-transport@iiasa.ac.at
+
+classifiers:
+- "Kind :: Phenomenon"
+
+# Stub file, no content
+dimension: {}
+measure: {}
+quantity: []

@@ -1,0 +1,34 @@
+format: 1
+
+title: Shared mobility
+description: |-
+  Mobility as a Service (MaaS) is an emerging concept that builds on a single,
+  digital, customer interface to source and manage travel-related services. At
+  its core, the concept of MaaS supports the digital joining-up of different
+  transport, information and payment services into a smooth and reliable
+  customer experience. These services may be those provided by a single
+  operator in cases where extensive vertical integration of services exist or
+  may involve a MaaS provider bringing together services offered by third
+  parties into a coherent framework. MaaS supports the integration of public
+  transport modes, commercial transport services such as ride-sourcing, bike
+  and car sharing and taxis into a comprehensive mobility offer. Whole journey
+  (point-to-point) planning, and, depending on the level of integration, the
+  purchasing of tickets and booking of demand-responsive / shared / taxi modes
+  would be completed via this data integration platform. In its most ambitious
+  forms, the delivery of Mobility as a Service would require the integration of
+  ticketing and payment systems across modes and potentially providers.
+
+  This file describes data that can quantify this phenomenon. Not all of the
+  quantities will be needed in a given application.
+
+provider:
+  organisation: EDITS network
+  contact: edits-transport@iiasa.ac.at
+
+classifiers:
+- "Kind :: Phenomenon"
+
+# Stub file, no content
+dimension: {}
+measure: {}
+quantity: []

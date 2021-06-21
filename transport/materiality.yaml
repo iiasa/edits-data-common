@@ -1,0 +1,21 @@
+format: 1
+
+title: Materiality of transport vehicles
+description: |-
+  Material cycles implicated in life-cycles of transport vehicles will/must
+  change to accommodate more sustainable activity patterns.
+
+  This file describes data that can quantify this phenomenon. Not all of the
+  quantities will be needed in a given application.
+
+provider:
+  organisation: EDITS network
+  contact: edits-transport@iiasa.ac.at
+
+classifiers:
+- "Kind :: Phenomenon"
+
+# Stub file, no content
+dimension: {}
+measure: {}
+quantity: []
