@@ -1,0 +1,174 @@
+# Metatdata in YAML format for the IEA Mobility Model (MoMo).
+
+# This file is in format version 1.
+format: 1
+
+# Information about the data
+title: IEA Mobility Model (MoMo)
+description: >
+  The IEA MoMo is the main tool used for the definition of transport scenarios
+  in the IEA. In particular, the IEA MoMo database feeds into the Word Energy
+  Model.
+# Information about the data provider
+provider:
+  organisation: International Energy Agency (IEA)
+  contact: jacob.teter@iea.org
+
+# Arbitrary hierarchical classifiers describing the data
+classifiers:
+- "Kind :: Model output"
+- "Availability :: Collaborators only"
+
+key outputs:
+  1: >-
+    National-level vehicle sales / stocks, by vehicle category (2/3-wheelers,
+    small-medium and large cars, light commercial vehicles, medium- and heavy-duty trucks,
+    minibuses, buses, metros, light-rail, conventional and high-speed trains,
+    ships [5 categores], aircraft [9 size classes]), and by powertrain [ICE/HEV/PHEV gasoline /diesel, BEV, FCEV for road modes, all major potential
+    powertrains for rail, ships, aircraft].
+  2: National level vkm/pkm/tkm on each of the above-listed vehicle categories /
+    powertrains.
+  3: Final energy consumption by all the above-listed vehicle categories /
+    powertrains.
+  4: Direct CO2 emissions / WTW GHG emissions by above-listed vehicle
+    categories / powertrains.
+  5: Capital / O&M / fuel costs by above-listed vehicle categories / powertrains.
+  6: Infrastructure deployment required by above-listed vehicle categories /
+    powertrains.
+  7: Capital / O&M / reconstruction / renovation costs of infrastructure deployed
+    for above-listed vehicle categories / powertrains.
+
+demand-side representation:
+  - Fundamental drivers are GDP and population projections from IMF /
+    UN.
+  - GIS analysis of population density (under SSPs) further modulate
+    patterns of passenger transport activity (e.g. by bounding potential
+    to shift to non-motorised / metro / light-rail / BRT / bus).
+  - Fiscal / regulatory / city-level development policies (including investments in public
+    transport infrastructure / farebox subsidies) further modulate modal shift
+    potential.
+  - Fuel / energy-vector prices are taken from supply module (TIMES/Markal).
+  - Shipping projections soft-linked to ITF gravity-based modelling, which in turn is
+    informed by OECD economic projections.
+  - Aviation modelling relies on University College London's Aviation Integrated Model (AIM).
+  - Road, rail, and maritime freight includes top-down estimates of potential for operational /
+    logistics efficiency (with literature-based estimates, measure by measure, under simple
+    non-additive assumptions of impacts).
+
+# List of data dimensions
+dimensions:
+  time:
+    # scope and resolution: free text; required for every dimension
+    # TODO: check. In website is mentioned up to 2100.
+    scope: historical (1990-2020) to 2070
+    resolution: 5-year periods
+  space:
+    scope: global
+    resolution:
+      regional: >
+        Modelling for road / rail of 32 regions. E.g. EU 5, EU Nordic,
+        non-EU Nordic, ASEAN9, Indonesia, Other Developing Asia, North Africa,
+        Sub-saharan Africa, etc.
+      national: >
+        Coverage of all G20 countries except Saudi Arabia (plus Chile,
+        Colombia, and Israel).
+      subnational: >
+        Three city size classes (grouped by potential for metro/light-rail,
+        BRT, and bus networks, respectively), plus urban/rural resolution.
+  technology:
+    # Description is optional for time/space, but required otherwise.
+    # We might settle on common definitions in the future, but for now
+    # each group can describe what specifically they mean by each concept
+    description: The powertrain technology of a transport vehicle.
+    scope: All transport technologies
+    resolution:
+      - vehicle category: >
+        2/3-wheelers, small-medium and large cars, light
+        commercial vehicles, medium- and heavy-duty trucks, minibuses, buses,
+        metros, light-rail, conventional and high-speed trains, ships [5 categores],
+        aircraft [9 size classes].
+        - powertrain: >
+          ICE/HEV/PHEV gasoline /diesel, BEV, FCEV for road modes, all major potential
+          powertrains for rail, ships, aircraft.
+  fuel:
+    description: The energy carrier used by a transport vehicle.
+    resolution: a list of 3 fuels
+    scope: Only liquid fuels
+  emissions:
+    scope:
+    resolution: direct emissions, well-to-wheel
+    - GHG emissions: >
+        Currently updating benchmarking for WTW GHG emissions by
+        fuel / energy vector supply chain.
+    # Air pollution
+    - non-GHG emissions: >
+        Estimates based on emission factors (e.g. from COPERT / ICCT). Need to
+        move to annual resolution with better specified scrappage / mileage
+        functions, plus better benchmarking data, to have more confidence in
+        these estimates.
+
+# List of data measures
+measures:
+  energy:
+    description: Energy consumed by all transport vehicles in a given period.
+  stock:
+    description: Quantity of vehicles in use.
+  activity:
+    description: Quantity of vehicles in use.
+  capital and operational expenditures:
+    description: capital and O&M costs by above-listed vehicle categories / powertrains.
+  materials:
+    description:
+      - metals: >
+          Steel, aluminium, and plastics in vehicles / steel and cement in road
+          and rail infrastructure.
+      - non-metallic minerals: Plastics.
+  infrastructure:
+    description: >
+      Infrastructure deployment required by above-listed vehicle categories /
+      powertrains.
+
+# List of different data available
+data:
+  # Including biomass
+- measure: energy
+  dimensions: [time, space, technology, fuel]
+  units: EJ
+- measure: stock
+  dimensions: [time, space, technology]
+  units: ""
+- measure: activity
+  # Different dimensions for this measure vs. the one above
+  dimensions: [time, space, technology]
+  units:
+    - vkm
+    - tkm
+    - pkm
+- measure: materials
+    dimensions: [time, space, technology]
+    units:
+- measure: capital and operational expenditures
+    dimensions: [time, space, technology]
+    units:
+- measure: infrastructure
+    dimensions: [time, space, technology]
+    units: Capital / O&M / reconstruction / renovation costs of infrastructure deployed.
+
+
+# Top-down vs bottom-up
+approach:
+  hybrid: >
+    Stock-accounting and comparative costs of ownership / operation very
+    bottom-up for a global model with such coverage, but projection methodologies
+    quite top-down (e.g. based on GDP, population, population density, etc.).
+
+# stand-alone or linked with other(s)
+linkage:
+  description: >
+    MoMo is used to critically assess the assumptions / methods / results of
+    the IEA World Energy Model (used by the WEO division).
+  - stand-alone model linked with others: >
+      In the modelling framework of the IEA, MoMo is linked to the other modelling
+      platforms of the Energy Technology and Policy Division.
+  - It is a module of a larger or different model (e.g. Integrated Assessment Model)
+
